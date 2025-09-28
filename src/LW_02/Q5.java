@@ -1,0 +1,20 @@
+package LW_02;
+
+import java.util.Scanner;
+
+public class Q5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the sentence.");
+        String str = sc.nextLine();
+        str = str.replaceAll("[\\p{Punct}\\s]+", "").toLowerCase();
+        String rev = new StringBuilder(str).reverse().toString();
+        if (str.equals(rev)) {
+            System.out.println("Sentence is a palindrome.");
+        } else {
+            System.out.println("Sentence is not a palindrome.");
+        }
+        sc.close();
+    }
+}
