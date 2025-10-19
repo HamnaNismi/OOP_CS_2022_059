@@ -15,6 +15,7 @@ public class Q10 {
         } else {
             System.out.println("Sentence is not a palindrome.");
         }
+
         sc.close();
     }
 }

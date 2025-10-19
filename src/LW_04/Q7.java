@@ -28,7 +28,7 @@ public class Q7 {
             }
             else{
                 int digit = digitLength(input);
-                System.out.println("Number of digits = " + digit);
+                System.out.println("Number of digits = " +  digit);
             }
         }
         sc.close();

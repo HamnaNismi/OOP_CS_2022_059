@@ -9,7 +9,7 @@ public class Q9 {
         System.out.print("Enter the number of rows you want for the pyramid: ");
         int rows = SC.nextInt();
 
-        for(int i = 1; i <= rows; i++){
+        for(int i = 1; i <= rows ; i++){
             for(int j = 1; j <= rows - i; j++){
                 System.out.print(" ");
             }

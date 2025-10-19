@@ -9,7 +9,7 @@ public class Q8 {
         System.out.print("Enter a number : ");
         int n = sc.nextInt();
 
-        for(int i=1;i<11;i++){
+        for(int i=1 ; i < 11 ; i++){
             System.out.println(n + " * "+ i + " = " + n*i);
         }
 
