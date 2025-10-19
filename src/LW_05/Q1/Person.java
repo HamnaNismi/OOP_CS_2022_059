@@ -6,5 +6,6 @@ public class Person {
     //parameterized constructor
     public Person(String name) {
         this.name = name;
+
     }
 }
