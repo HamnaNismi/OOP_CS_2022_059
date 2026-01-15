@@ -32,7 +32,6 @@ public class Q2 {
                     continue;
             }
         }
-
         for (Pet p: pets) {
             String type = "";
             if (p instanceof Cat) type = "Cat";

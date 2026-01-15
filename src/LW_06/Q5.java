@@ -23,7 +23,6 @@ public class Q5 {
             if (min > d.getWeight()) min = d.getWeight();
             n++;
         }
-
         double avg = sum / n;
 
         System.out.println("Average : " + avg);

@@ -41,6 +41,7 @@ public class Q3 {
                 System.out.println("Pet name : " + p.getName() + ",\t\tPet type : " + type);
             }
         }
+
         System.out.println("All Dogs :");
         for (Pet p: pets) {
             String type = "";

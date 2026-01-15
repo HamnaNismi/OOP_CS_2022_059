@@ -19,4 +19,5 @@ public class Dog extends Pet {
     public void setWeight(double weight) {
         this.weight = weight;
     }
+
 }
