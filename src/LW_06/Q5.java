@@ -29,6 +29,5 @@ public class Q5 {
         System.out.println("Average : " + avg);
         System.out.println("Maximum : " + max);
         System.out.println("Minimum : " + min);
-
     }
 }

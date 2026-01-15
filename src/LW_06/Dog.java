@@ -3,6 +3,7 @@ package LW_06;
 public class Dog extends Pet {
 
     double weight;
+
     public Dog(String name) {
         super.setName(name);
     }

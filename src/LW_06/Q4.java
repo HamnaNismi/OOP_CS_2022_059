@@ -47,6 +47,7 @@ public class Q4 {
                 System.out.print(",\t\tCoat color : " + ((Cat) p).getCatColor());
             }
         }
+
         System.out.println("\n\nAll Dogs :");
         for (Pet p: pets) {
             if (p instanceof Dog) {
