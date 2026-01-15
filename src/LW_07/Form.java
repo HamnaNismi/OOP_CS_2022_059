@@ -1,212 +1,216 @@
-
 package LW_07;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Form extends JFrame implements ActionListener {
+class Form extends JFrame implements ActionListener {
 
-    // Components
-    private Container c;
-    private JLabel title, nameLabel, mobileLabel, genderLabel, dobLabel, addressLabel;
-    private JTextField nameText, mobileText;
-    private JRadioButton male, female;
-    private ButtonGroup genderGroup;
-    private JComboBox<String> day, month, year;
-    private JTextArea addressText, output;
-    private JCheckBox terms;
-    private JButton submit, reset;
-    private JLabel resLabel;
+    private final Container container;
+    private final JLabel title;
+    private final JLabel name;
+    private final JTextField tname;
+    private final JLabel mno;
+    private final JTextField tmno;
+    private final JLabel gender;
+    private final JRadioButton male;
+    private final JRadioButton female;
+    private final ButtonGroup gengp;
+    private final JLabel dob;
+    private final JComboBox date;
+    private final JComboBox month;
+    private final JComboBox year;
+    private final JLabel add;
+    private final JTextArea tadd;
+    private final JCheckBox term;
+    private final JButton sub;
+    private final JButton reset;
+    private final JTextArea tout;
+    private final JLabel res;
+    private final JTextArea resadd;
 
-    // Data for combo boxes
-    private String[] days = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-            "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-            "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" };
+    private final String[] dates = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
+    private final String[] months = {"Jan", "feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sup", "Oct", "Nov", "Dec"};
+    private final String[] years = {"1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"};
 
-    private String[] months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-
-    private String[] years = { "1990", "1991", "1992", "1993", "1994", "1995",
-            "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004",
-            "2005", "2006", "2007", "2008", "2009", "2010" };
-
-    // Constructor
     public Form() {
         setTitle("Registration Form");
-        setBounds(300, 90, 800, 600);
+        setBounds(300, 90, 900, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
 
-        c = getContentPane();
-        c.setLayout(null);
+        container = getContentPane();
+        container.setLayout(null);
 
-        // Title
         title = new JLabel("Registration Form");
-        title.setFont(new Font("Arial", Font.PLAIN, 24));
+        title.setFont(new Font("Arial", Font.PLAIN, 30));
         title.setSize(300, 30);
-        title.setLocation(250, 30);
-        c.add(title);
+        title.setLocation(300, 30);
+        container.add(title);
 
-        // Name
-        nameLabel = new JLabel("Name");
-        nameLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        nameLabel.setSize(100, 20);
-        nameLabel.setLocation(100, 100);
-        c.add(nameLabel);
+        name = new JLabel("Name");
+        name.setFont(new Font("Arial", Font.PLAIN, 20));
+        name.setSize(100, 20);
+        name.setLocation(100, 100);
+        container.add(name);
 
-        nameText = new JTextField();
-        nameText.setFont(new Font("Arial", Font.PLAIN, 15));
-        nameText.setSize(190, 20);
-        nameText.setLocation(200, 100);
-        c.add(nameText);
+        tname = new JTextField();
+        tname.setFont(new Font("Arial", Font.PLAIN, 15));
+        tname.setSize(190, 20);
+        tname.setLocation(200, 100);
+        container.add(tname);
 
-        // Mobile
-        mobileLabel = new JLabel("Mobile");
-        mobileLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        mobileLabel.setSize(100, 20);
-        mobileLabel.setLocation(100, 150);
-        c.add(mobileLabel);
+        mno = new JLabel("Mobile");
+        mno.setFont(new Font("Arial", Font.PLAIN, 20));
+        mno.setSize(100, 20);
+        mno.setLocation(100, 150);
+        container.add(mno);
 
-        mobileText = new JTextField();
-        mobileText.setFont(new Font("Arial", Font.PLAIN, 15));
-        mobileText.setSize(190, 20);
-        mobileText.setLocation(200, 150);
-        c.add(mobileText);
+        tmno = new JTextField();
+        tmno.setFont(new Font("Arial", Font.PLAIN, 15));
+        tmno.setSize(150, 20);
+        tmno.setLocation(200, 150);
+        container.add(tmno);
 
-        // Gender
-        genderLabel = new JLabel("Gender");
-        genderLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        genderLabel.setSize(100, 20);
-        genderLabel.setLocation(100, 200);
-        c.add(genderLabel);
+        gender = new JLabel("Gender");
+        gender.setFont(new Font("Arial", Font.PLAIN, 20));
+        gender.setSize(100, 20);
+        gender.setLocation(100, 200);
+        container.add(gender);
 
         male = new JRadioButton("Male");
         male.setFont(new Font("Arial", Font.PLAIN, 15));
         male.setSelected(true);
         male.setSize(75, 20);
         male.setLocation(200, 200);
-        c.add(male);
+        container.add(male);
 
         female = new JRadioButton("Female");
         female.setFont(new Font("Arial", Font.PLAIN, 15));
         female.setSelected(false);
         female.setSize(80, 20);
         female.setLocation(275, 200);
-        c.add(female);
+        container.add(female);
 
-        genderGroup = new ButtonGroup();
-        genderGroup.add(male);
-        genderGroup.add(female);
+        gengp = new ButtonGroup();
+        gengp.add(male);
+        gengp.add(female);
 
-        // DOB
-        dobLabel = new JLabel("DOB");
-        dobLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        dobLabel.setSize(100, 20);
-        dobLabel.setLocation(100, 250);
-        c.add(dobLabel);
+        dob = new JLabel("DOB");
+        dob.setFont(new Font("Arial", Font.PLAIN, 20));
+        dob.setSize(100, 20);
+        dob.setLocation(100, 250);
+        container.add(dob);
 
-        day = new JComboBox<>(days);
-        day.setFont(new Font("Arial", Font.PLAIN, 15));
-        day.setSize(60, 20);
-        day.setLocation(200, 250);
-        c.add(day);
+        date = new JComboBox(dates);
+        date.setFont(new Font("Arial", Font.PLAIN, 15));
+        date.setSize(50, 20);
+        date.setLocation(200, 250);
+        container.add(date);
 
-        month = new JComboBox<>(months);
+        month = new JComboBox(months);
         month.setFont(new Font("Arial", Font.PLAIN, 15));
-        month.setSize(90, 20);
-        month.setLocation(270, 250);
-        c.add(month);
+        month.setSize(60, 20);
+        month.setLocation(250, 250);
+        container.add(month);
 
-        year = new JComboBox<>(years);
+        year = new JComboBox(years);
         year.setFont(new Font("Arial", Font.PLAIN, 15));
-        year.setSize(80, 20);
-        year.setLocation(370, 250);
-        c.add(year);
+        year.setSize(60, 20);
+        year.setLocation(320, 250);
+        container.add(year);
 
-        // Address
-        addressLabel = new JLabel("Address");
-        addressLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        addressLabel.setSize(100, 20);
-        addressLabel.setLocation(100, 300);
-        c.add(addressLabel);
+        add = new JLabel("Address");
+        add.setFont(new Font("Arial", Font.PLAIN, 20));
+        add.setSize(100, 20);
+        add.setLocation(100, 300);
+        container.add(add);
 
-        addressText = new JTextArea();
-        addressText.setFont(new Font("Arial", Font.PLAIN, 15));
-        addressText.setSize(200, 75);
-        addressText.setLocation(200, 300);
-        addressText.setLineWrap(true);
-        c.add(addressText);
+        tadd = new JTextArea();
+        tadd.setFont(new Font("Arial", Font.PLAIN, 15));
+        tadd.setSize(200, 75);
+        tadd.setLocation(200, 300);
+        tadd.setLineWrap(true);
+        container.add(tadd);
 
-        // Terms checkbox
-        terms = new JCheckBox("Accept Terms And Conditions.");
-        terms.setFont(new Font("Arial", Font.PLAIN, 15));
-        terms.setSize(250, 20);
-        terms.setLocation(150, 400);
-        c.add(terms);
+        term = new JCheckBox("Accept Terms &Conditions.");
+        term.setFont(new Font("Arial", Font.PLAIN, 15));
+        term.setSize(250, 20);
+        term.setLocation(150, 400);
+        container.add(term);
 
-        // Buttons
-        submit = new JButton("Submit");
-        submit.setFont(new Font("Arial", Font.PLAIN, 15));
-        submit.setSize(100, 20);
-        submit.setLocation(150, 450);
-        submit.addActionListener(this);
-        c.add(submit);
+        sub = new JButton("Submit");
+        sub.setFont(new Font("Arial", Font.PLAIN, 15));
+        sub.setSize(100, 20);
+        sub.setLocation(150, 450);
+        sub.addActionListener(this);
+        container.add(sub);
 
         reset = new JButton("Reset");
         reset.setFont(new Font("Arial", Font.PLAIN, 15));
         reset.setSize(100, 20);
         reset.setLocation(270, 450);
         reset.addActionListener(this);
-        c.add(reset);
+        container.add(reset);
 
-        // Output box
-        output = new JTextArea();
-        output.setFont(new Font("Arial", Font.PLAIN, 15));
-        output.setSize(300, 350);
-        output.setLocation(500, 100);
-        output.setLineWrap(true);
-        output.setEditable(false);
-        c.add(output);
+        tout = new JTextArea();
+        tout.setFont(new Font("Arial", Font.PLAIN, 15));
+        tout.setSize(300, 400);
+        tout.setLocation(500, 100);
+        tout.setLineWrap(true);
+        tout.setEditable(false);
+        container.add(tout);
 
-        resLabel = new JLabel("");
-        resLabel.setFont(new Font("Arial", Font.PLAIN, 15));
-        resLabel.setSize(500, 25);
-        resLabel.setLocation(150, 500);
-        c.add(resLabel);
+        res = new JLabel("");
+        res.setFont(new Font("Arial", Font.PLAIN, 20));
+        res.setSize(500, 25);
+        res.setLocation(100, 500);
+        container.add(res);
 
-        setVisible(true);
+        resadd = new JTextArea();
+        resadd.setFont(new Font("Arial", Font.PLAIN, 15));
+        resadd.setSize(200, 75);
+        resadd.setLocation(580, 175);
+        resadd.setLineWrap(true);
+        container.add(resadd);
     }
 
-    @Override
+    //Logic for button press
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == submit) {
-            if (terms.isSelected()) {
-                String data1 = "Name : " + nameText.getText() + "\n" +
-                        "Mobile : " + mobileText.getText() + "\n" +
-                        "Gender : " + (male.isSelected() ? "Male" : "Female") + "\n";
-                String data2 = "DOB : " + day.getSelectedItem() + " "
-                        + month.getSelectedItem() + " " + year.getSelectedItem() + "\n";
-                String data3 = "Address : " + addressText.getText() + "\n";
+        //if submit button clicked
+        if (e.getSource() == sub) {
+            if (term.isSelected()) {
+                //print details in text area
+                String data1;
+                String data = "Name : " + tname.getText() + "\n" + "Mobile : " + tmno.getText() + "\n";
+                if (male.isSelected()) data1 = "Gender : Male" + "\n";
+                else data1 = "Gender : Female" + "\n";
+                String data2 = "DOB : " + date.getSelectedItem() + "/" + month.getSelectedItem() + "/" + year.getSelectedItem() + "\n";
 
-                output.setText(data1 + data2 + data3);
-                resLabel.setText("Registration Successfully..");
+                String data3 = "Address : " + tadd.getText();
+                tout.setText(data + data1 + data2 + data3);
+                tout.setEditable(false);
+                res.setText("Registration Successful!");
             } else {
-                output.setText("");
-                resLabel.setText("Please accept the terms & conditions.");
+                tout.setText("");
+                resadd.setText("");
+                res.setText("Please accept the" + " terms & conditions..");
             }
+
+            //if reset button clicked
         } else if (e.getSource() == reset) {
             String def = "";
-            nameText.setText(def);
-            mobileText.setText(def);
-            addressText.setText(def);
-            resLabel.setText(def);
-            output.setText(def);
-            terms.setSelected(false);
-            day.setSelectedIndex(0);
+            tname.setText(def);
+            tadd.setText(def);
+            tmno.setText(def);
+            res.setText(def);
+            tout.setText(def);
+            term.setSelected(false);
+            date.setSelectedIndex(0);
             month.setSelectedIndex(0);
             year.setSelectedIndex(0);
-            male.setSelected(true);
+            resadd.setText(def);
         }
     }
 }

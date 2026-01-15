@@ -2,6 +2,7 @@ package LW_07;
 
 public class Main {
     public static void main(String[] args) {
-        new Form();
+        Form form = new Form();
+        form.setVisible(true);
     }
 }
